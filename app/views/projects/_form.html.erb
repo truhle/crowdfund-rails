@@ -1,0 +1,26 @@
+<%= form_for @project do |p| %>
+<p>
+  <%= p.label :name %><br/>
+  <%= p.text_field :name, autofocus: true %>
+</p>
+<p>
+  <%= p.label :description %><br/>
+  <%= p.text_area :description, cols: 40, rows: 7 %>
+</p>
+<p>
+  <%= p.label "Goal" %><br/>
+  <%= p.number_field :target_pledge_amount %>
+</p>
+<p>
+  <%= p.label :pledging_ends_on %><br>
+  <%= p.date_select :pledging_ends_on %>
+</p>
+<p>
+  <%= p.label :website %><br/>
+  <%= p.text_field :website, size: @project.website.respond_to?(:length) ? (@project.website.length + 10) : 50 %>
+</p>
+<p>
+  <%= p.submit %> |
+  <%= link_to "Cancel", projects_path %>
+</p>
+<% end %>
