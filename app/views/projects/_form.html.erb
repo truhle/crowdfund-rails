@@ -12,12 +12,20 @@
   <%= p.number_field :target_pledge_amount %>
 </p>
 <p>
+  <%= p.label :team_members %><br/>
+  <%= p.text_field :team_members %>
+</p>
+<p>
   <%= p.label :pledging_ends_on %><br>
   <%= p.date_select :pledging_ends_on %>
 </p>
 <p>
   <%= p.label :website %><br/>
   <%= p.text_field :website, size: @project.website.respond_to?(:length) ? (@project.website.length + 10) : 50 %>
+</p>
+<p>
+  <%= p.label :image_file_name %>
+  <%= p.text_field :image_file_name %>
 </p>
 <p>
   <%= p.submit %> |

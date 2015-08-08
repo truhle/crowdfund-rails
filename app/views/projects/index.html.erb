@@ -4,6 +4,7 @@
 
 <% @projects.each do |project| %>
   <article>
+    <%= image_for(project) %>
     <header>
       <h2><%= link_to project.name, project %></h2>
     </header>

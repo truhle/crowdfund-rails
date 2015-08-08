@@ -6,7 +6,9 @@ describe "Viewing the list of projects" do
                               description: "One device, fits in your pocket and changes your online world. Now you control YOUR internet!",
                               target_pledge_amount: 60000,
                               pledging_ends_on: 1.week.from_now,
-                              website: "https://www.facebook.com/pages/Keezel/986939261325092")
+                              website: "https://www.facebook.com/pages/Keezel/986939261325092",
+                              team_members: "Aike Müller, Friso Schmid",
+                              image_file_name: "keezel.jpg")
 
     project2 = Project.create(name: "Temple of Promise",
                               description: "The Temple Listens",
@@ -31,6 +33,8 @@ describe "Viewing the list of projects" do
     expect(page).to have_text(project1.description[0..10])
     expect(page).to have_text("$50,000.00")
     expect(page).to have_text(project1.website)
+    expect(page).not_to have_text(project1.team_members)
+    expect(page).to have_selector("img[src$='#{project1.image_file_name}']")
   end
 
   it 'does not show a project that is no longer accepting pledges' do

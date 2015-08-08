@@ -36,6 +36,7 @@ group :development, :test do
   gem "test-unit"
   gem "minitest"
   gem "rspec-rails"
+  gem "guard-rspec", require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

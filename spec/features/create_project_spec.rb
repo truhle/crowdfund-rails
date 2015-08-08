@@ -12,6 +12,8 @@ describe "Creating a new project" do
     fill_in "project_target_pledge_amount", with: "50000"
     # select (Time.now.month + 1.month).to_s, :from => "project_pledging_ends_on_2i"
     fill_in "Website", with: "http://www.example.com"
+    fill_in "Team members", with: "Cool Guy, Cool Gal"
+    fill_in "Image file name", with: "project.png"
 
     click_button "Create Project"
 
