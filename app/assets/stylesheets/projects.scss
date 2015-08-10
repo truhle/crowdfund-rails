@@ -1,3 +1,14 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+
+article.project {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  header {
+    border-top: solid 1px darken($secondary-color, 10%);
+    margin-top: 20px;
+  }
+  img {
+    border: solid 4px $secondary-color;
+    margin-top: 0px;
+  }
+}
