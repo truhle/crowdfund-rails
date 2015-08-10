@@ -1,7 +1,5 @@
 <h1><%= pluralize(@projects.size, "Project") %></h1>
 
-<%= link_to "Add New Project", new_project_path %>
-
 <% @projects.each do |project| %>
   <article>
     <%= image_for(project) %>
@@ -39,5 +37,3 @@
     </table>
   </article>
   <% end %>
-
-  <%= render 'footer' %>
