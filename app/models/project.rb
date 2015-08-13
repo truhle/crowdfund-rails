@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   def expired?
-    pledging_ends_on.past?
+    pledging_ends_on < Date.today
   end
 
   def self.receiving_pledges

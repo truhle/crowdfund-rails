@@ -19,7 +19,7 @@ describe "Viewing project page" do
 
     visit project_url(project)
 
-    expect(page).to have_text("About 1 month remaining")
+    expect(page).to have_text("about 1 month remaining")
   end
 
   it "shows 'All Done!' if the pledging end date is in the past" do

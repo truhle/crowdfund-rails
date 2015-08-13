@@ -1,7 +1,7 @@
 
 describe "Viewing the list of projects" do
 
-  it "shows three project names" do
+  it "shows the projects stored in the database" do
     project1 = Project.create(name: "Keezel",
                               description: "One device, fits in your pocket and changes your online world. Now you control YOUR internet!",
                               target_pledge_amount: 60000,
@@ -25,14 +25,12 @@ describe "Viewing the list of projects" do
 
     visit projects_url
 
-    expect(page).to have_text("3 Projects")
     expect(page).to have_text(project1.name)
     expect(page).to have_text(project2.name)
     expect(page).to have_text(project3.name)
 
     expect(page).to have_text(project1.description[0..10])
     expect(page).to have_text("$50,000.00")
-    expect(page).to have_text(project1.website)
     expect(page).not_to have_text(project1.team_members)
     expect(page).to have_selector("img[src$='#{project1.image_file_name}']")
   end
@@ -42,5 +40,19 @@ describe "Viewing the list of projects" do
 
     visit projects_url
     expect(page).not_to have_text(project.name)
+  end
+
+  it "lists projects in order of pledging ends on date" do
+  project1 = Project.new(project_attributes(pledging_ends_on: 2.days.from_now))
+  project1.save
+
+  project2 = Project.new(project_attributes(pledging_ends_on: 1.day.from_now))
+  project2.save
+
+  visit projects_path
+
+  projects_all = all(".project")
+  expect(projects_all[0]["id"]).to eq("project_#{project2.id}")
+  expect(projects_all[1]["id"]).to eq("project_#{project1.id}")
   end
 end

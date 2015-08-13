@@ -3,11 +3,15 @@ module ProjectsHelper
     if project.expired?
       content_tag(:strong, "All Done!")
     else
-      "#{time_ago_in_words(project.pledging_ends_on).capitalize} remaining"
+      distance_of_time_in_words(Date.today, project.pledging_ends_on) + " remaining"
     end
   end
 
   def image_for(project)
-    image_tag(project.image_file_name)
+    if  project.image_file_name.blank?
+      image_tag 'placeholder.png'
+    else
+      image_tag(project.image_file_name)
+    end
   end
 end

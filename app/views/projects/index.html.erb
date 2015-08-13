@@ -1,39 +1,25 @@
-<h1><%= pluralize(@projects.size, "Project") %></h1>
-
-<% @projects.each do |project| %>
-  <article class="project">
-    <header>
-      <h2><%= link_to project.name, project %></h2>
-    </header>
-    <%= image_for(project) %>
-    <p>
-    <%= truncate(project.description, length: 150, separator: ' ') %>
-    </p>
-    <table>
-      <tr>
-        <th>
-          Goal:
-        </th>
-        <td>
-          <%= number_to_currency(project.target_pledge_amount) %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Ends:
-        </th>
-        <td>
-          <%= format_pledging_ends_on (project) %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Website:
-        </th>
-        <td>
-          <%= link_to project.website, project.website %>
-        </td>
-      </tr>
-    </table>
-  </article>
+<ul id="projects">
+  <% @projects.each do |project| %>
+    <li>
+      <article class="project" id="<%= dom_id(project) %>">
+        <header>
+          <%= image_for(project) %>
+          <h2><%= link_to(project.name, project) %></h2>
+        </header>
+        <p>
+          <%= truncate(project.description, length: 150) %>
+        </p>
+        <table>
+          <tr>
+            <th>Pledging Ends</th>
+            <td><%= format_pledging_ends_on(project) %></td>
+          </tr>
+          <tr>
+            <th>Goal</th>
+            <td><%= number_to_currency(project.target_pledge_amount) %></td>
+          </tr>
+        </table>
+      </article>
+    </li>
   <% end %>
+</ul>
