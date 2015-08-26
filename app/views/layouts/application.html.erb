@@ -11,7 +11,12 @@
 <%= render 'layouts/header' %>
 
 <div id="wrapper">
-  
+  <% flash.each do |key, value| %>
+    <%= content_tag(:p, value, class: "flash #{key}") %>
+    <!-- <p class= "flash <%= key %>">
+      <%= flash[key] %>
+    </p> -->
+  <% end %>
   <div id="container">
     <%= render 'layouts/sidebar' %>
     <section id="content">

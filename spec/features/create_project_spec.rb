@@ -23,7 +23,7 @@ describe "Creating a new project" do
     expect(page).to have_text("$50,000.00")
     # expect(page).to have_text("About 1 month remaining")
     expect(page).to have_text("http://www.example.com")
-
+    expect(page).to have_text("Project successfully created!")
   end
 
   it "does not save the project if it's invalid" do
@@ -32,7 +32,7 @@ describe "Creating a new project" do
     expect {
       click_button "Create Project"
     }.not_to change(Project, :count)
-    
+
     expect(current_path).to eq(projects_path)
     expect(page).to have_text("error")
   end

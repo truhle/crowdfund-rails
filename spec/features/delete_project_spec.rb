@@ -10,5 +10,7 @@ describe "Deleting a project" do
 
     expect(current_path).to eq(projects_path)
     expect(page).not_to have_text(project.name)
+
+    expect(page).to have_text("Project deleted.")
   end
 end
