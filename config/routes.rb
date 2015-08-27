@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pledges
   root "projects#index"
   # get "/projects" => "projects#index"
   # get "/projects/new" => "projects#new"

@@ -104,4 +104,24 @@ describe "A project" do
       expect(project.errors[:image_file_name].any?).to eq(true)
     end
   end
+
+  it "has many pledges" do
+    project = Project.create(project_attributes)
+
+    pledge1 = project.pledges.create(pledge_attributes)
+    pledge2 = project.pledges.create(pledge_attributes)
+
+    expect(project.pledges.count).to eq(2)
+  end
+
+  it "deletes associated pledges" do
+    project = Project.create(project_attributes)
+
+    pledge1 = project.pledges.create(pledge_attributes)
+    pledge2 = project.pledges.create(pledge_attributes)
+
+    expect {
+      project.destroy
+    }.to change(Pledge, :count).by(-2)
+  end
 end

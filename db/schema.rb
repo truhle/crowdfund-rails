@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808163336) do
+ActiveRecord::Schema.define(version: 20150827183926) do
+
+  create_table "pledges", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "amount"
+    t.text     "comment"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pledges", ["project_id"], name: "index_pledges_on_project_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
