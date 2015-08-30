@@ -19,6 +19,7 @@
   <p>
     <%= @project.team_members %>
   </p>
+  <%= link_to pluralize(@project.pledges.count, "Pledge"), project_pledges_url(@project) %>
   <footer>
     <nav>
       <%= link_to "Edit", edit_project_path, class: 'button' %> |
