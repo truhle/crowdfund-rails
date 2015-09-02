@@ -21,6 +21,7 @@
   </p>
   <%= link_to pluralize(@project.pledges.count, "Pledge"), project_pledges_url(@project) %>
   <footer>
+    <%= link_to "Pledge!", new_project_pledge_path(@project), class: "button ok" %>
     <nav>
       <%= link_to "Edit", edit_project_path, class: 'button' %> |
       <%= link_to "Delete", @project, class: 'button', method: :delete, data: { confirm: "Are you sure?" } %>

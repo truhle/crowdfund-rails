@@ -23,7 +23,7 @@ describe "Viewing project page" do
   end
 
   it "shows 'All Done!' if the pledging end date is in the past" do
-    project = Project.create(project_attributes(pledging_ends_on: 1.days.ago))
+    project = Project.create(project_attributes(pledging_ends_on: 2.days.ago))
 
     visit project_url(project)
 

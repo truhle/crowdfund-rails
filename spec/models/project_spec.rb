@@ -1,6 +1,6 @@
 describe "A project" do
   it "has expired if the pledging ends on date is in the past" do
-    project = Project.new(pledging_ends_on: 1.days.ago)
+    project = Project.new(pledging_ends_on: 2.days.ago)
 
     expect(project.expired?).to eq(true)
   end
