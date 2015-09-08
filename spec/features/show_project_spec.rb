@@ -30,4 +30,27 @@ describe "Viewing project page" do
     expect(page).to have_text("All Done!")
   end
 
+  it "shows the amount outstanding with a pledge link if the project is not funded" do
+    project = Project.create(project_attributes(target_pledge_amount: 50000))
+    project.pledges.create(pledge_attributes(amount: 500))
+
+    visit project_url(project)
+
+    expect(page).to have_text("$49,500.00")
+    expect(page).to have_selector(:link_or_button, "Pledge!")
+  end
+
+  it "shows 'Funded' without a pledge link if the project is funded" do
+    project = Project.create(project_attributes(target_pledge_amount: 50000))
+
+    101.times do
+      project.pledges.create(pledge_attributes(amount: 500))
+    end
+
+    visit project_url(project)
+
+    expect(page).to have_text("Funded")
+    expect(page).not_to have_selector(:link_or_button, "Pledge!")
+  end
+
 end

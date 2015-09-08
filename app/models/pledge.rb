@@ -5,4 +5,5 @@ class Pledge < ActiveRecord::Base
   validates :amount, inclusion: { in: AMOUNTS }
 
   belongs_to :project
+
 end
