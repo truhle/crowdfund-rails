@@ -87,24 +87,6 @@ describe "A project" do
     end
   end
 
-  it "accepts properly formatted image file names" do
-    file_names = %w[e.png project.png project.jpg project.gif PROJECT.GIF]
-    file_names.each do |file_name|
-      project = Project.new(image_file_name: file_name)
-      project.valid?
-      expect(project.errors[:image_file_name].any?).to eq(false)
-    end
-  end
-
-  it "rejects improperly formatted image file names" do
-    file_names = %w[project .png .jpg .gif project.pdf project.doc]
-    file_names.each do |file_name|
-      project = Project.new(image_file_name: file_name)
-      project.valid?
-      expect(project.errors[:image_file_name].any?).to eq(true)
-    end
-  end
-
   it "has many pledges" do
     project = Project.create(project_attributes)
 

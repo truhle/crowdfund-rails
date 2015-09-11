@@ -13,7 +13,7 @@ describe "Creating a new project" do
     # select (Time.now.month + 1.month).to_s, :from => "project_pledging_ends_on_2i"
     fill_in "Website", with: "http://www.example.com"
     fill_in "Team members", with: "Cool Guy, Cool Gal"
-    fill_in "Image Filename", with: "project.png"
+    attach_file "Image", "#{Rails.root}/app/assets/images/project-a.png"
 
     click_button "Create Project"
 

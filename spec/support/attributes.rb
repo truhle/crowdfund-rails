@@ -6,7 +6,7 @@ def project_attributes(overrides={})
     pledging_ends_on: 1.month.from_now,
     website: "https://www.facebook.com/pages/Keezel/986939261325092",
     team_members: "Aike Müller, Friso Schmid",
-    image_file_name: "keezel.jpg"
+    image: open("#{Rails.root}/app/assets/images/keezel.jpg")
   }.merge(overrides)
 end
 
