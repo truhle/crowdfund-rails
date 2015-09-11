@@ -32,7 +32,7 @@ describe "Viewing the list of projects" do
     expect(page).to have_text(project1.description[0..10])
     expect(page).to have_text("$50,000.00")
     expect(page).not_to have_text(project1.team_members)
-    expect(page).to have_selector("img[src$='#{project1.image.url}']")
+    expect(page).to have_selector("img[src$='#{project1.image.url(:medium)}']")
   end
 
   it 'does not show a project that is no longer accepting pledges' do

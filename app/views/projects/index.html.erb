@@ -7,7 +7,7 @@
           <h2><%= link_to(project.name, project) %></h2>
         </header>
         <p>
-          <%= truncate(project.description, length: 150) %>
+          <%= truncate(project.description, length: 150, separator: ' ') %>
         </p>
         <table>
           <tr>

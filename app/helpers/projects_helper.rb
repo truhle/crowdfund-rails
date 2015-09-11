@@ -9,7 +9,7 @@ module ProjectsHelper
 
   def image_for(project)
     if  project.image.exists?
-      image_tag project.image.url
+      image_tag project.image.url(:medium)
     else
       image_tag 'placeholder.png'
     end

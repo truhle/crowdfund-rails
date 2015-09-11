@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
   has_many :pledges, dependent: :destroy
-  has_attached_file :image
+  has_attached_file :image, styles: {
+    medium: "620x420>",
+    small: "206x140>"
+  }
 
   validates :name, :description, presence: true
   validates :description, length: { maximum: 500 }
