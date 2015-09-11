@@ -107,6 +107,7 @@ GEM
     notiffany (0.0.7)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (0.18.3)
     power_assert (0.2.4)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -216,6 +217,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest
+  pg
   rails (= 4.2.2)
   rspec-rails
   sass-rails (~> 5.0)
