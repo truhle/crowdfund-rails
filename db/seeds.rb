@@ -10,7 +10,7 @@ Project.create!([
     name: "Keezel",
     description: "One device, fits in your pocket and changes your online world. Now you control YOUR internet!",
     target_pledge_amount: 60000,
-    pledging_ends_on: Time.now + 1.month,
+    pledging_ends_on: Time.now + 45.days,
     website: "https://www.facebook.com/pages/Keezel/986939261325092",
     team_members: "Aike Müller, Friso Schmid",
     image_file_name: "keezel.jpg"
@@ -19,7 +19,7 @@ Project.create!([
     name: "Temple of Promise",
     description: "The Temple Listens",
     target_pledge_amount: 60000,
-    pledging_ends_on: Time.now + 15.days,
+    pledging_ends_on: Time.now + 30.days,
     website: "http://www.templeofpromise.org/",
     team_members: "Sharma Hendel, Gloria Beck, Smooch Es, Carlie Jones, April Jones, Melissa Kirk, Yan Budman, Jazz Tigan",
     image_file_name: "templeofpromise.png"
@@ -28,7 +28,7 @@ Project.create!([
     name: "Tower Unite",
     description: "Online virtual world game with games, activities, media, and NO microtransactions.",
     target_pledge_amount: 50000,
-    pledging_ends_on: Time.now + 20.days,
+    pledging_ends_on: Time.now + 28.days,
     website: "http://www.towerunite.com/",
     team_members: "PixelTail Games, William Smith, Scott Kauker, Andy Garcia, Samuel Maddock, Matt Young, Damonic Cobley, Zachary Blystone, Macklin Guy",
     image_file_name: "towerunite.png"
